@@ -2,6 +2,7 @@
 
 ## CPU (smaller model)
 
+```
 $ python sample.py --out_dir=shakespeare_char
 Overriding: out_dir = shakespeare_char
 number of parameters: 0.80M
@@ -24,12 +25,11 @@ Hartiond a wards be his a forth in course.
 
 ANGHERW:
 My have for hi
----------------
-
+```
 
 ## GPU (bigger, slower model)
 
-
+```
 $ python sample.py --out_dir=shakespeare_char 
 Overriding: out_dir = shakespeare_char
 number of parameters: 10.65M
@@ -50,4 +50,4 @@ You shall not hear that now I was mine.
 
 CLIFFORD:
 Your liege, sir.
-
+```
