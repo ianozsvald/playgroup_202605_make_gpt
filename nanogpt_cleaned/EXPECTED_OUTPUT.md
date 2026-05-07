@@ -1,6 +1,31 @@
 # Expected output from a trained model
 
-## CPU (smaller model)
+## CPU (smaller model), manual attn ```
+
+```
+$ python sample.py 
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+number of parameters: 0.80M
+Loading meta from shakespeare_char/meta.pkl...
+
+I by done what leave death,
+And aproposely beef the are and sors blate though wat our fort
+Thine the aftior than whating bods farse dowed
+And nears and thou stand murs's consel.
+
+MEOF:
+Sir, should and then thee.
+
+```
+```
+```
+
+
+## CPU (smaller model), Flash attention
+
 
 ```
 $ python sample.py --out_dir=shakespeare_char
