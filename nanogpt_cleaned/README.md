@@ -40,7 +40,7 @@ In `train.py` there's a flag `TRAIN_CONFIG` which by default is `cpu` which make
 ## Inference on the trained model
 
 ```
-python sample.py --out_dir=out-shakespeare-char
+python sample.py --out_dir=shakespeare_char
 ```
 ```
 ```
