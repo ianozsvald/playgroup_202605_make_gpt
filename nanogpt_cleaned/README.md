@@ -10,7 +10,7 @@ python -m venv .venv
 pip install torch numpy transformers wandb tqdm
 ```
 
-## Running shakespeare
+## Training shakespeare
 
 ```
 python shakespeare_char/prepare.py
@@ -27,6 +27,8 @@ python train.py --device=cpu --compile=False --eval_iters=20 --log_interval=1 --
 ```
 ### If you're on Mac or you have a CUDA device
 
+If you run the GPU config it'll take 5-20 minutes, building a larger model that's better at producing Shakespeare but it might be harder to debug as the data might not be easily accessible to the Python debugger.
+
 ```
 python train.py --device=mps # use on a Mac
 python train.py --device=cuda # win/lin with CUDA
@@ -34,6 +36,14 @@ python train.py --device=cuda # win/lin with CUDA
 
 
 In `train.py` there's a flag `TRAIN_CONFIG` which by default is `cpu` which makes it easy to debug, at least with CUDA it is hard to debug as data lives on the GPU. If you flick this switch to `gpu` it'll run with a bigger model, much slower and it'll make a better model.
+
+## Inference on the trained model
+
+```
+python sample.py --out_dir=out-shakespeare-char
+```
+```
+```
 ```
 ```
 ```
