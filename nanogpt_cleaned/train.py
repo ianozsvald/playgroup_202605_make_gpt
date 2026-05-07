@@ -7,6 +7,7 @@ import time
 import math
 import pickle
 from contextlib import nullcontext
+from datetime import datetime
 
 import numpy as np
 import torch
@@ -32,7 +33,7 @@ wandb_project = out_dir # 'shakespeare-char'
 wandb_run_name = out_dir
 
 TRAIN_CONFIG = "cpu" # quick means cpu-friendly to enable easy debugging 
-TRAIN_CONFIG = "gpu" # gpu based, needs cuda or mps 
+#TRAIN_CONFIG = "gpu" # gpu based, needs cuda or mps 
 
 
 if TRAIN_CONFIG == "gpu":
@@ -237,6 +238,7 @@ t0 = time.time()
 local_iter_num = 0 # number of iterations in the lifetime of this process
 raw_model = model
 running_mfu = -1.0
+start_time = datetime.now()
 while True:
 
     # determine and set the learning rate for this iteration
@@ -310,4 +312,7 @@ while True:
     # termination conditions
     if iter_num > max_iters:
         break
+
+end_time = datetime.now()
+print(f"Took {end_time-start_time} to run")
 
