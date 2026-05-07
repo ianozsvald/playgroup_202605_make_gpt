@@ -1,4 +1,5 @@
 
+This is a fork of Karpathy's excellent https://github.com/karpathy/nanogpt (MIT License), I continue the MIT license in this repo. I've simplified the code by a) removing alternate configurations and b) removing GPT2 architectural options. This fork works just for Shakespeare-character level tokens, on CPU or GPU/MPS.
 
 ## Setting up with venv
 

@@ -35,6 +35,8 @@ Goal - run the included nanoGPT, fill in the blanks (SEE BELOW)
 
 First - go into `nanogpt_cleaned`, this is a cleaned-up variant of Karpathy's excellent `nanogpt`. This one is hardcoded to work on cpu (not gpu) shakespeare character text generation, with the multi-GPU and GPT2 specific code removed. There's a `README.md` in that folder, get setup and try running the code.
 
+Karpathy's code uses the MIT license, I've modified his code and continue the MIT license here. Full respect to Karpathy.
+
 TODO FILL IN THE BLANK VARIANTS
 
 ### Visualisations you might create
