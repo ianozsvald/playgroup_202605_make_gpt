@@ -14,6 +14,7 @@ Goal - run MicroGPT (see bullet below), try to figure out all the components of 
 * https://karpathy.github.io/2026/02/12/microgpt/ - friendly high level walk through for 'microgpt' (pure python minimal GPT), 1hr
 * https://growingswe.com/blog/microgpt - great interactive tutorial
 * https://www.reddit.com/r/learnmachinelearning/comments/1r3qaky/andrej_karpathys_microgpt_architecture_stepbystep/ - nice visual overview
+* https://www.youtube.com/watch?v=KJtZARuO3JY&t=2671s - lovely 3blue1brown 45min intro to Attention (not specific to microGPT)
 * https://www.youtube.com/watch?v=kCc8FmEb1nY - excellent 2 hour video building up nanoGPT (karpathy's pytorch based GPT) which explains all the concepts, min 2hr
 * https://www.youtube.com/watch?v=KJtZARuO3JY&t=2671s - attention talk by 3blue1brown, builds great intuitions, 1 hr
 
@@ -31,6 +32,8 @@ Goal - run MicroGPT (see bullet below), try to figure out all the components of 
 ## Level 2
 
 Goal - run the included nanoGPT, fill in the blanks (SEE BELOW)
+
+First - go into `nanogpt_cleaned`, this is a cleaned-up variant of Karpathy's excellent `nanogpt`. This one is hardcoded to work on cpu (not gpu) shakespeare character text generation, with the multi-GPU and GPT2 specific code removed. There's a `README.md` in that folder, get setup and try running the code.
 
 TODO FILL IN THE BLANK VARIANTS
 
