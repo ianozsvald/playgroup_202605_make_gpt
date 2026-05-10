@@ -1,0 +1,14 @@
+[project]
+name = "nanogpt-cleaned"
+version = "0.1.0"
+# Exclude CPython 3.13.8 because its inspect.getsourcelines() can
+# return incomplete decorated PyTorch overload stubs, breaking import torch.
+# See https://github.com/pytorch/pytorch/issues/178255.
+requires-python = ">=3.11,!=3.13.8,<3.14"
+dependencies = [
+  "numpy",
+  "torch",
+  "tqdm",
+  "transformers",
+  "wandb",
+]

@@ -3,12 +3,13 @@ This is a fork of Karpathy's excellent https://github.com/karpathy/nanogpt (MIT 
 
 ## Setting up with venv
 
-Create a `.venv` folder with your system Python, *activate* it, then install the `nanogpt` dependencies.
+Create a `.venv` folder with uv, then install the `nanogpt` dependencies.
+
+This project allows Python 3.11, 3.12, and 3.13 except for Python 3.13.8. Avoid Python 3.13.8 with PyTorch 2.11.0 for now; that combination can fail during `import torch` with an `IndentationError` in PyTorch's overload parsing.
 
 ```
-python -m venv .venv
+uv sync
 . .venv/bin/activate
-pip install torch numpy transformers wandb tqdm
 ```
 
 ## Training shakespeare
