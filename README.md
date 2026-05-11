@@ -1,18 +1,21 @@
-# playgroup_202605_make_gpt
+# playgroup_202605_make_gpt - Let's Build Some of GPT
 
 Choose your own adventure to build (bits of) GPT in a playgroup day. Pick your level of challenge and self-organise with peers, collaborate and share as you go. None of this is fixed or 'right', but they're probably good starting points, feel free to go on your own adventure too. 
 
 Share results as you go in the #transformers channel, particularly good visuals with notes that'd give useful intuitions to everyone else. If you find good resources like other nice tutorials or videos, feel free to raise a PR (or bug report as an easy log) against this repo so I can add them for the future.
 
-
 ## Level 1 - you've seen some videos and maybe run the code before
 
-Goal - run MicroGPT (see bullet below), try to figure out all the components of what's behind it. 
+Goal - run MicroGPT (see bullet below), try to figure out all the components of what's behind it. It 'should just run', you can debug it or talk about it and play with tutorials. 
 
 * https://gist.github.com/karpathy/8627fe009c40f57531cb18360106ce95 MicroGPT code 'it should just run'
 * https://bbycroft.net/llm - great interactive tutorial (I've followed it repeatedly), 1hr+, based on the bigger nanoGPT but the ideas are the same
 * https://karpathy.github.io/2026/02/12/microgpt/ - friendly high level walk through for 'microgpt' (pure python minimal GPT), 1hr
+
+### Resources for MicroGPT
+
 * https://growingswe.com/blog/microgpt - great interactive tutorial
+* https://speakerdeck.com/ianozsvald/build-your-own-llm-live-with-microgpt - Ian's PyDataLondon 2026 talk on MicroGPT
 * https://www.reddit.com/r/learnmachinelearning/comments/1r3qaky/andrej_karpathys_microgpt_architecture_stepbystep/ - nice visual overview
 * https://www.youtube.com/watch?v=KJtZARuO3JY&t=2671s - lovely 3blue1brown 45min intro to Attention (not specific to microGPT)
 * https://www.youtube.com/watch?v=kCc8FmEb1nY - excellent 2 hour video building up nanoGPT (karpathy's pytorch based GPT) which explains all the concepts, min 2hr
@@ -41,16 +44,22 @@ TODO FILL IN THE BLANK VARIANTS
 
 ### Visualisations you might create
 
-* Draw the initial and learned wpe and wte matrices, how are they different to Ian's MicroGPT visualisations (https://www.linkedin.com/posts/ianozsvald_tonight-im-speaking-at-pydata-london-on-ugcPost-7457412625845575682-63wf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAABKaUBPYZfMn8VYoI5sVKX8lZuVm5-tZA) and in #transformers?
+* Draw the initial and learned `wpe` and `wte` matrices for nanoGPT (which has a similarly small character vocab), how are they different to Ian's MicroGPT visualisations (https://www.linkedin.com/posts/ianozsvald_tonight-im-speaking-at-pydata-london-on-ugcPost-7457412625845575682-63wf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAABKaUBPYZfMn8VYoI5sVKX8lZuVm5-tZA) and in #transformers?
   * Ian created a dot-product wte and then a cosine similarity wpe and wte (all for MicroGPT), an audience member suggested t-sne might be a good way to group the characters that have similarity, maybe that's a good idea to try?
-* Draw probability distributions for tokens likelihood over time
+  * https://speakerdeck.com/ianozsvald/build-your-own-llm-live-with-microgpt?slide=8 cosine similarity for vowel similarity
+  * does NanoGPT on Shakespeare show vowel self-similarity for the `wte`?
+* Draw probability distributions for tokens likelihood over time, moving from equally likely to peaks
 * Draw the before and after RMSNorm matrix to explain what it does
+* Look into a 'logit probe' to convert earlier Transformer layers back to LMHead
+* The `Adam` optimizer has a pair of params per model param - how do they evolve over time?
 
 ## Level 3
 
 You're comfy with `pytorch` and you know enough of the Transformer architecture. Possible tasks:
 
-* Draw the whole architecture from scratch from memory
-* Implement it
+* Draw the whole architecture from scratch and then implement what you can (i.e. "just do what Karpathy does"!)
+  * OR take the existing code and delete each `forward` function `model.py` and fill them back in by hand
 * Replace ReLU, RMSNorm with e.g. GeLU and another Norm
-* Add a KV Cache
+* Add a KV Cache, measure a speed increase at inference time
+* If in `model.py` we set `self.flash = True`, how much faster is it than the current non-optimised version?
+* Swap the Muon optimiser in place of Adam, does it run faster? Does loss come down faster?

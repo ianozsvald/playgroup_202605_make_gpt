@@ -12,6 +12,14 @@ uv sync
 . .venv/bin/activate
 ```
 
+If you don't have `uv` you might also install the latest versions directly:
+
+```
+python -m venv .venv
+. .venv/bin/activate
+pip install torch numpy transformers wandb tqdm
+```
+
 ## Training shakespeare
 
 ```
