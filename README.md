@@ -40,7 +40,7 @@ First - go into `nanogpt_cleaned`, this is a cleaned-up variant of Karpathy's ex
 
 Karpathy's code uses the MIT license, I've modified his code and continue the MIT license here. Full respect to Karpathy.
 
-TODO FILL IN THE BLANK VARIANTS
+TODO IAN TO FILL IN THE BLANK VARIANTS
 
 ### Visualisations you might create
 
@@ -53,12 +53,18 @@ TODO FILL IN THE BLANK VARIANTS
 * Look into a 'logit probe' to convert earlier Transformer layers back to LMHead
 * The `Adam` optimizer has a pair of params per model param - how do they evolve over time?
 
+### Resources
+
+* https://github.com/stanford-cs336/assignment1-basics/blob/main/cs336_assignment1_basics.pdf - Stanford course on writing an LLM
+* The books that Ian will bring
+
 ## Level 3
 
 You're comfy with `pytorch` and you know enough of the Transformer architecture. Possible tasks:
 
 * Draw the whole architecture from scratch and then implement what you can (i.e. "just do what Karpathy does"!)
   * OR take the existing code and delete each `forward` function `model.py` and fill them back in by hand
+* Take the Stanford "build your own LLM code" course and follow it: https://github.com/stanford-cs336/assignment1-basics/blob/main/cs336_assignment1_basics.pdf
 * Replace ReLU, RMSNorm with e.g. GeLU and another Norm
 * Add a KV Cache, measure a speed increase at inference time
 * If in `model.py` we set `self.flash = True`, how much faster is it than the current non-optimised version?
