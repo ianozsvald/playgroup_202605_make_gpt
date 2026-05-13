@@ -1,6 +1,6 @@
 # Expected output from a trained model
 
-## CPU (smaller model), manual attn ```
+## CPU (smaller model), manual attn (default in our code)
 
 ```
 $ python sample.py 
@@ -18,14 +18,9 @@ And nears and thou stand murs's consel.
 
 MEOF:
 Sir, should and then thee.
-
-```
-```
 ```
 
-
-## CPU (smaller model), Flash attention
-
+## CPU (smaller model), Flash attention (disabled in our code)
 
 ```
 $ python sample.py --out_dir=shakespeare_char
