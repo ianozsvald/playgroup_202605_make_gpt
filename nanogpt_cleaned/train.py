@@ -115,8 +115,6 @@ config = {k: globals()[k] for k in config_keys} # will be useful for logging
 # various inits, derived attributes, I/O setup
 master_process = True
 seed_offset = 0
-#ddp_world_size = 1 # IAN TODO remove?
-#tokens_per_iter = gradient_accumulation_steps * ddp_world_size * batch_size * block_size # IAN TODO remove?
 tokens_per_iter = gradient_accumulation_steps * batch_size * block_size
 print(f"tokens per iteration will be: {tokens_per_iter:,}")
 
@@ -170,9 +168,8 @@ assert init_from == 'scratch'
 # init a new model from scratch
 print("Initializing a new model from scratch")
 # determine the vocab size we'll use for from-scratch training
-if meta_vocab_size is None:
-    print("defaulting to vocab_size of GPT-2 to 50304 (50257 rounded up for efficiency)")
-model_args['vocab_size'] = meta_vocab_size if meta_vocab_size is not None else 50304
+assert meta_vocab_size is not None, "IAN TODO trying to remove stuff"
+model_args['vocab_size'] = meta_vocab_size
 gptconf = GPTConfig(**model_args)
 model = GPT(gptconf)
 # crop down the model block size if desired, using model surgery

@@ -22,19 +22,25 @@ pip install torch numpy transformers wandb tqdm
 
 ## Training shakespeare
 
+The following will download the input data (`shakespeare_char/input.txt`), make some meta data and vocabulary files, then train the model with a _simplistic_ configuration that runs quickly just with CPUs. Try `sample.py` below to get rubbish Shakespeare. 
+
+You can run the GPU variants below to train a bigger model, but it makes debugging harder - the upside is 'better Shakespeare'.
+
 ```
-python shakespeare_char/prepare.py
+(uv run) python shakespeare_char/prepare.py
 ... outputs some vocab info
-python train.py # by default this reads the shakespeare_char prepared data, using CPU (i.e. stupid + quick + debuggable), circa 3 mins for 2000 iterations
+(uv run) python train.py # by default this reads the shakespeare_char prepared data, using CPU (i.e. stupid + quick + debuggable), circa 3 mins for 2000 iterations
 ```
+
+To clean up in `shakespeare_char` use `rm input.txt meta.pkl *.bin ckpt.pt`.
 
 ### If you're on Mac or you have a CUDA device
 
 If you run the GPU config it'll take 20 minutes, building a larger model that's better at producing Shakespeare but it might be harder to debug as the data might not be easily accessible to the Python debugger.
 
 ```
-python train.py --device=mps # use on a Mac
-python train.py --device=cuda # win/lin with CUDA
+(uv run) python train.py --device=mps # use on a Mac
+(uv run) python train.py --device=cuda # win/lin with CUDA
 ```
 
 In `train.py` there's a flag `TRAIN_CONFIG` which by default is `cpu` which makes it easy to debug, at least with CUDA it is hard to debug as data lives on the GPU. If you flick this switch to `gpu` it'll run with a bigger model, much slower and it'll make a better model.
@@ -42,5 +48,5 @@ In `train.py` there's a flag `TRAIN_CONFIG` which by default is `cpu` which make
 ## Inference on the trained model
 
 ```
-python sample.py
+(uv run) python sample.py
 ```

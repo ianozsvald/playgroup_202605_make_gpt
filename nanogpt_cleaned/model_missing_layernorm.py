@@ -24,7 +24,8 @@ class LayerNorm(nn.Module):
         self.bias = nn.Parameter(torch.zeros(ndim)) if bias else None
 
     def forward(self, input):
-        return F.layer_norm(input, self.weight.shape, self.weight, self.bias, 1e-5)
+        # MISSING
+        return ... # you'll need layer_norm ...
 
 class CausalSelfAttention(nn.Module):
 

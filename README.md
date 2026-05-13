@@ -40,7 +40,22 @@ First - go into `nanogpt_cleaned`, this is a cleaned-up variant of Karpathy's ex
 
 Karpathy's code uses the MIT license, I've modified his code and continue the MIT license here. Full respect to Karpathy.
 
-TODO IAN TO FILL IN THE BLANK VARIANTS
+### Good questions to answer before you start
+
+* In `train.py` how many layers and heads do we have? What is the context length (Time)? What's the embedding size? Start with CPU mode (the default)
+  * Contrast with the bbycroft visualisation link (above)
+  * You might want to make a note of the relevant variable names
+* How big are the Q K V matrices?
+* Where is self attention calculated in `model.py`? Can you grok it?
+
+### Modified `model.py` files for you to fill in
+
+A great challenge is to _write code_ to fill in the blanks. The following files are direct copies of `model.py` with particular items removed. Can you recover the missing code, without copying it and without asking an agent to write it for you?
+
+Nothing runs these files, you need to move your `model.py` aside (e.g. as `model_orig.py`) and then copy e.g. `cp model_missing_layernorm.py model.py` and then fill in what's missing, then confirm it runs to train and you can still sample. See `nanogpt_cleaned/EXPECTED_OUTPUT.md` for examples of what to expect.
+
+* `model_missing_layernorm.py` missing 1 line of layer norm - can you put it back?
+
 
 ### Visualisations you might create
 
