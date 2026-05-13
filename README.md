@@ -54,6 +54,9 @@ A great challenge is to _write code_ to fill in the blanks. The following files 
 
 Nothing runs these files, you need to move your `model.py` aside (e.g. as `model_orig.py`) and then copy e.g. `cp model_missing_layernorm.py model.py` and then fill in what's missing, then confirm it runs to train and you can still sample. See `nanogpt_cleaned/EXPECTED_OUTPUT.md` for examples of what to expect.
 
+In each file below look for "MISSING" and you'll see what needs completing.
+
+* `model_missing_wpewte.py` you need to get `wte` and `wpe` and combine them in `GPT.forward`, otherwise nothing goes into the Transformer
 * `model_missing_layernorm.py` missing 1 line of layer norm - can you put it back?
 
 
