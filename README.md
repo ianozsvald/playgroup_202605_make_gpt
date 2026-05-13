@@ -58,7 +58,9 @@ In each file below look for "MISSING" and you'll see what needs completing.
 
 * `model_missing_wpewte.py` you need to get `wte` and `wpe` and combine them in `GPT.forward`, otherwise nothing goes into the Transformer
 * `model_missing_layernorm.py` missing 1 line of layer norm - can you put it back?
-
+* `model_missing_mlp.py` MLP's calculations are missing in `forward`, can you fix it?
+* `model_missing_block.py` the Block can't calculate the Transformer step, can you fill in the gaps?
+* `model_missing_attn.py` missing a few attention calculation steps - can you complete the calculation of attention?
 
 ### Visualisations you might create
 

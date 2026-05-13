@@ -67,11 +67,20 @@ class CausalSelfAttention(nn.Module):
         #    assert False, "expt to see if we can avoid this IAN TODO"
         #else:
         # manual implementation of attention
-        att = (q @ k.transpose(-2, -1)) * (1.0 / math.sqrt(k.size(-1)))
+        
+        # MISSING
+        # you need to make att on a dot product of q and k transposed (on dimensions -2, -1)
+        # then normalise by the sqrt of k's size
+        # then use the provided masked fill 
+        # and perform a softmax on dimension -1 
+        # before finishing with the provided attn_dropout 
+        att = ... MISSING
         att = att.masked_fill(self.bias[:,:,:T,:T] == 0, float('-inf'))
-        att = F.softmax(att, dim=-1)
+        att = ... MISSING
         att = self.attn_dropout(att)
-        y = att @ v # (B, nh, T, T) x (B, nh, T, hs) -> (B, nh, T, hs)
+        # MISSING
+        # now dot product the attention matrix by values and you should be done
+        y = ... MISSING # (B, nh, T, T) x (B, nh, T, hs) -> (B, nh, T, hs)
 
         y = y.transpose(1, 2).contiguous().view(B, T, C) # re-assemble all head outputs side by side
 
@@ -181,10 +190,9 @@ class GPT(nn.Module):
         pos = torch.arange(0, t, dtype=torch.long, device=device) # shape (t)
 
         # forward the GPT model itself
-        # MISSING
-        # get tok_emb and pos_emb from wte and wpe respectively and combine them to make x
-        x = ...
-
+        tok_emb = self.transformer.wte(idx) # token embeddings of shape (b, t, n_embd)
+        pos_emb = self.transformer.wpe(pos) # position embeddings of shape (t, n_embd)
+        x = self.transformer.drop(tok_emb + pos_emb)
         for block in self.transformer.h:
             x = block(x)
         x = self.transformer.ln_f(x)

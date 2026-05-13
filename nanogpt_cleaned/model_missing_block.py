@@ -105,11 +105,9 @@ class Block(nn.Module):
         self.mlp = MLP(config)
 
     def forward(self, x):
-        # bbycrof shows Attention Residual, adding previous layer
-        # to the attn output
-        x = x + self.attn(self.ln_1(x))
-        # bbycroft shows MLP Residual, MLP Result + previous layer
-        x = x + self.mlp(self.ln_2(x))
+        # MISSING
+        # calculate x via layer norms, causal self attention and the mlp layer
+        x = ...
         return x
 
 @dataclass
@@ -181,10 +179,9 @@ class GPT(nn.Module):
         pos = torch.arange(0, t, dtype=torch.long, device=device) # shape (t)
 
         # forward the GPT model itself
-        # MISSING
-        # get tok_emb and pos_emb from wte and wpe respectively and combine them to make x
-        x = ...
-
+        tok_emb = self.transformer.wte(idx) # token embeddings of shape (b, t, n_embd)
+        pos_emb = self.transformer.wpe(pos) # position embeddings of shape (t, n_embd)
+        x = self.transformer.drop(tok_emb + pos_emb)
         for block in self.transformer.h:
             x = block(x)
         x = self.transformer.ln_f(x)
