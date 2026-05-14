@@ -77,6 +77,7 @@ In each file below look for "MISSING" and you'll see what needs completing.
 
 * https://github.com/stanford-cs336/assignment1-basics/blob/main/cs336_assignment1_basics.pdf - Stanford course on writing an LLM
 * The books that Ian will bring
+* https://github.com/raiyanyahya/how-to-train-your-gpt
 
 ## Level 3
 
@@ -84,7 +85,7 @@ You're comfy with `pytorch` and you know enough of the Transformer architecture.
 
 * Draw the whole architecture from scratch and then implement what you can (i.e. "just do what Karpathy does"!)
   * OR take the existing code and delete each `forward` function `model.py` and fill them back in by hand
-* Take the Stanford "build your own LLM code" course and follow it: https://github.com/stanford-cs336/assignment1-basics/blob/main/cs336_assignment1_basics.pdf
+* Take the Stanford "build your own LLM code" course (above) and follow it
 * Replace ReLU, RMSNorm with e.g. GeLU and another Norm
 * Add a KV Cache, measure a speed increase at inference time
 * If in `model.py` we set `self.flash = True`, how much faster is it than the current non-optimised version?
