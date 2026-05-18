@@ -1,5 +1,7 @@
 # playgroup_202605_make_gpt - Let's Build Some of GPT
 
+_Addendum - having run this event, here's the LinkedIn write-up -> https://www.linkedin.com/feed/update/urn:li:activity:7462109120884543488/_
+
 Choose your own adventure to build (bits of) GPT in a playgroup day. Pick your level of challenge and self-organise with peers, collaborate and share as you go. None of this is fixed or 'right', but they're probably good starting points, feel free to go on your own adventure too. 
 
 Share results as you go in the #transformers channel, particularly good visuals with notes that'd give useful intuitions to everyone else. If you find good resources like other nice tutorials or videos, feel free to raise a PR (or bug report as an easy log) against this repo so I can add them for the future.
